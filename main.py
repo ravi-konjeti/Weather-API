@@ -8,9 +8,12 @@ app = Flask("__name__")
 
 # If the user does not enter anything and just clicks the ip address
 # "/" just this is given this directs us to the home.html page in templates
+
+stations = pd.read_csv("data_small/stations.txt", skiprows=17)
+stations = stations[["STAID", "STANAME                                 "]]
 @app.route("/")
 def home():
-    return render_template("home.html")
+    return render_template("home.html", data=stations.to_html())
 
 
 @app.route("/api/v1/<station>/<date>")
