@@ -26,7 +26,7 @@ def about(station, date):
     return {"Station": station,
             "Date": date,
             "Temperature": temperature}
-
+#print
 @app.route("/api/v1/<station>")
 def all_data(station):
     # zfill("number of zeros you need before a string")
